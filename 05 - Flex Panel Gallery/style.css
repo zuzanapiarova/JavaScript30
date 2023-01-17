@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Italiana', serif;
+    text-transform: uppercase;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    min-height: 100vh;
+}
+
+.hobbies{
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 2em;
+}
+
+.panel1 { background-image: url(./images/jordan-whitfield-eAYO8vKNeFQ-unsplash.jpg) }
+.panel2 { background-image:url(./images/joel-jasmin-forestbird-znoL1m6MD_k-unsplash-2.jpg); }
+.panel3 { background-image:url(./images/ryan-ancill-0w1MiTY78h0-unsplash.jpg); }
+.panel4 { background-image:url(./images/szilvia-basso-bbbKrKr9Ld0-unsplash.jpg); }
+.panel5 { background-image:url(./images/jonathan-ybema-X5goZpoIn7s-unsplash-2.jpg); }
+
+.panels {
+    overflow: hidden;
+    display: flex;
+    height: 90vh;
+}
+
+.panel{
+    padding: 2em 0;
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+    color: white;
+    background-size: cover;  /*  rmember this for setting images as backhround!!! */
+    background-position: center;  /*  rmember this for setting images as backhround!!! */
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.panel > * {
+    margin: 0;
+    width: 100%;
+    transition: transform 0.5s;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+    font-size: 2em;
+}
+
+.zoom {
+    font-size: 1.5em;
+    flex: 2;
+}
+
+.panel >p:first-child{
+    transform: translateY(-10em);
+    visibility: none;
+}
+
+.panel.zoom >*:first-child{
+    transform: translateY(0)
+}
+
+.panel >p:last-child{
+    transform: translateY(10em);
+    visibility: none;
+}
+
+.panel.zoom >*:last-child{
+    transform: translateY(0)
+}
+
