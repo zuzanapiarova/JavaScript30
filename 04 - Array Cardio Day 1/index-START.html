@@ -35,30 +35,91 @@
       'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
     ];
     
-    // Array.prototype.filter()
+    // Array.prototype.filter() - filters returns only those items from original array that fulfill the condition
     // 1. Filter the list of inventors for those who were born in the 1500's
+    // arrayName.filter( element => condition ):
+    const inventorsFrom1500 = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+      //function that takes in each inventor from inventors array and decides if we want to save it into our variable or not based on the condition
 
-    // Array.prototype.map()
+    // Array.prototype.map() - map always returns the same amount of items as there are in original array, but only the properties we want
     // 2. Give us an array of the inventors first and last names
+    // arrayName.map( element => element.key1 + element.key2 + ...) - can use tempate literals
+    const inventorNames = inventors.map(inventor => (inventor.first + ' ' + inventor.last));
 
-    // Array.prototype.sort()
+    // Array.prototype.sort() - returns all array items passed in, but in different order
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const oldestToYoungest1 = inventors.sort((firstPerson, secondPerson) => {
+      if(firstPerson.year > secondPerson.year){
+        return 1
+      } else {
+        return -1
+      }
+    });
 
-    // Array.prototype.reduce()
+    //or fo it like this with ternary operators:
+
+    const oldestToYoungest2 = inventors.sort((firstPerson, secondPerson) => (firstPerson.year > secondPerson.year ? 1 : -1));
+
+    // Array.prototype.reduce() - executes a callback function on each element of the array in order, passing in the return value from the calculation on the preceding element
+    //result of the reduced array is a single value
+    //arrayName.reduce((accumulator, currentValue) => {fucntion logic with return}, initialValueOfAccumulator);
     // 4. How many years did all the inventors live all together?
+
+    const totalYearsLived = inventors.reduce((total, inventor) => {
+      return total + (inventor.passed - inventor.year);
+    }, 0);
 
     // 5. Sort the inventors by years lived
 
-    // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-    // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+    const livedLongestToShortest = inventors.sort((a, b) => ((a.passed - a.year) > (b.passed - b.year)) ? 1 : -1);
+
+   /* 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+        // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris - do this excercise in concole of this link
+        //1. first save all the Boulevard names into a variable - find which element stores the boulevard names through developer tools
+    const category = document.querySelector('.mw-category'); //select element that emcapsulates all boulevard names
+    let links = category.querySelectorAll('a'); // select all elements that store names of boulevards, in this case it is links
+        //querySelectorAll returns a node list, so we need to transform it into an array, there are two ways: 
+        //1. spread(...): const links = [...category.querySelectorAll('a')];
+        //2. Array.from(): 
+    links = Array.from(category.querySelectorAll('a'));
+    let names = links.map(link => link.innerHTML);//now we can use the map method and convert the links into a list of names
+    let namesWithDe = names.filter(boulevardName => boulevardName.includes('de'));
+    console.log(namesWithDe);
+        result is an array of names that include 'de': 
+        0 "Boulevard de l'Amiral-Bruix"
+        1 "Boulevard des Capucines"
+        2 "Boulevard de la Chapelle"
+        3 "Boulevard de Clichy"
+        4 "Boulevard de l'Hôpital"
+        5 "Boulevard des Italiens"
+        6 "Boulevard de la Madeleine"
+        7 "Boulevard de Magenta"
+        8 "Boulevard Marguerite-de-Rochechouart"
+        9 "Boulevard de Sébastopol"
+        10 "Boulevard de Strasbourg"
+        11 "Boulevard de la Zone" */
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
+    const lastNameAlphabetically = people.sort(function(personA, personB){
+      const aLastName = personA.split(', '); //split each person into last name and first name where you hit coma with space
+      const bLastName = personB.split(', ');
+      return aLastName > bLastName ? 1 : -1;
+    });
 
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
+    const sumInstances = data.reduce((obj, item) => {
+      if(!obj[item]){
+        obj[item] = 0;  //ak nemame taky arry nastav ho na nulu
+      }
+      obj[item]++; // pripocitaj 1 do arrayu pre ten konkretny object ked ho stretnes 
+      return obj;
+
+    }, {}); //starting with a blank object {} do ktoreho budeme pripocitavat 
+    console.log(sumInstances);
 
   </script>
 </body>
