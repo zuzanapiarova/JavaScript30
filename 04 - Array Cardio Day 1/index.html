@@ -140,14 +140,14 @@
 
     // Some and Every Checks
     // Array.prototype.some() // is at least one person 19 or older?
-    const isSomeoneAdult = friends.some(person => { //some returns true if at least one fulfills the condition
+    const isSomeoneAdult = friends.some(friend => { //some returns true if at least one fulfills the condition
       const currentYear = (new Date()).getFullYear();
-      return currentYear - person.year >= 19;
+      return currentYear - friend.year >= 19;
     });
     // Array.prototype.every() // is everyone 19 or older?
-    const isEveryoneAdult = friends.every(person => { //some returns true if everyone fulfills the condition
+    const isEveryoneAdult = friends.every(friend => { //some returns true if everyone fulfills the condition
       const currentYear = (new Date()).getFullYear();
-      return currentYear - person.year >= 19;
+      return currentYear - friend.year >= 19;
     });
 
     // Array.prototype.find() - find works like filter but doe snot return everything that fulfills the condition but only the first result that fulfills the condition
