@@ -38,35 +38,35 @@ h2 {
   font-weight: 200;
 }
 
-.plates {
+.tapasItems {
   margin: 0;
   padding: 0;
   text-align: left;
   list-style: none;
 }
 
-.plates li {
+.tapasItems li {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   font-weight: 100;
   display: flex;
 }
 
-.plates label {
+.tapasItems label {
   flex: 1;
   cursor: pointer;
 }
 
-.plates input {
+.tapasItems input {
   display: none;
 }
 
-.plates input + label:before {
+.tapasItems input + label:before {
   content: "⬜️";
   margin-right: 10px;
 }
 
-.plates input:checked + label:before {
+.tapasItems input:checked + label:before {
   content: "🌮";
 }
 
@@ -79,3 +79,4 @@ h2 {
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
+
