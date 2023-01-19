@@ -25,7 +25,7 @@ function checkSlide(e){
         //console.log(imageMiddle);
         const imageBottom = image.offsetTop + image.height; // this is the bottom of each image, at this point we slide the image out
         
-        //these two variables are true when the image is showing
+        //these two variables are values in px, and if the window for each image is between them, the image is showing thanks to added class active, otherwise the class active is removed and image is not visible 
         const isHalfShown = imageMiddle > image.offsetTop;
         const isNotScrolledPast = window.scrollY < imageBottom;
         if(isHalfShown && isNotScrolledPast){
