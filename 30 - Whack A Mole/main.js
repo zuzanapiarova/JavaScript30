@@ -52,5 +52,5 @@ function hit(e){
 
 moles.forEach( mole => mole.addEventListener('click', hit))
 startButton.addEventListener('click', startGame);
-
+//PROBLEMS : start button position, when you click one mole multiple times when its out iw gives you higher score
 //how to improve the game: add a score out of ... - count how many moles showed during those 10 seconds the game lasted or add levels where the time for each mole out is lower or save the scoreboard and name of player into some storage
